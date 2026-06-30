@@ -1,0 +1,49 @@
+/* Tablet (Up to 1024px) */
+@media (max-width: 1024px) {
+    #news-grid-root {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+/* Mobile (Up to 768px) */
+@media (max-width: 768px) {
+    :root {
+        --header-height: 64px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    h1 { font-size: 2rem; }
+    
+    .search-input {
+        font-size: 1rem;
+        padding: 0.875rem 1rem 0.875rem 3rem;
+    }
+
+    .breaking-news-card {
+        flex-direction: column;
+    }
+
+    .bookmarks-drawer {
+        max-width: 100%;
+        right: -100%;
+    }
+}
+
+/* Small devices (Up to 480px) */
+@media (max-width: 480px) {
+    section {
+        margin-bottom: 2.5rem;
+    }
+
+    .category-list {
+        padding: 0.5rem 0;
+    }
+    
+    .card-content {
+        padding: 1rem;
+    }
+}
