@@ -4,9 +4,6 @@
  * It uses the 'fetch' API to make asynchronous network requests.
  */
 
-const NEWS_API_KEY=ce95587b0d204f6cb28730881e728688;
-const NEWS_API_BASE=https://newsapi.org/v2;
-
 import { API_CONFIG } from '../utils/constants.js';
 
 /**
@@ -65,6 +62,21 @@ const MOCK_DATA = [
     }
 ];
 
+const getMockArticles = ({ category = 'general', query = '' } = {}) => {
+    if (query) {
+        return MOCK_DATA.filter(article =>
+            article.title.toLowerCase().includes(query.toLowerCase()) ||
+            article.description.toLowerCase().includes(query.toLowerCase())
+        );
+    }
+
+    if (category && category !== 'general') {
+        return MOCK_DATA.filter(article => article.category === category);
+    }
+
+    return MOCK_DATA;
+};
+
 export const newsAPI = {
     /**
      * fetchNews: The primary function to get news articles.
@@ -81,19 +93,7 @@ export const newsAPI = {
             console.warn('API Key missing. Using mock data.');
             return new Promise((resolve) => {
                 setTimeout(() => {
-                    let filtered = MOCK_DATA;
-                    // Apply search filtering locally if a query is provided
-                    if (query) {
-                        filtered = MOCK_DATA.filter(a => 
-                            a.title.toLowerCase().includes(query.toLowerCase()) ||
-                            a.description.toLowerCase().includes(query.toLowerCase())
-                        );
-                    } 
-                    // Apply category filtering locally
-                    else if (category && category !== 'general') {
-                        filtered = MOCK_DATA.filter(a => a.category === category);
-                    }
-                    resolve({ articles: filtered });
+                    resolve({ articles: getMockArticles({ category, query }) });
                 }, 800); // 800ms delay to simulate loading
             });
         }
@@ -149,8 +149,8 @@ export const newsAPI = {
         } catch (error) {
             // Log the error for debugging purposes
             console.error('Fetch error:', error);
-            // Re-throw so the UI component can show an error message to the user
-            throw error;
+            console.warn('Using mock data fallback after API failure.');
+            return { articles: getMockArticles({ category, query }) };
         }
     }
 };
