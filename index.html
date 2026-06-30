@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NewsPulse - Stay Ahead. Stay Informed. Live news feed with a premium experience.">
+    <title>NewsPulse | Live News Feed</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Favicon placeholder -->
+    <link rel="icon" href="https://img.icons8.com/color/48/news.png">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Header Component -->
+        <header id="header-root"></header>
+
+        <main class="container">
+            <!-- Hero Component -->
+            <section id="hero-root"></section>
+
+            <!-- Category Filter Component -->
+            <nav id="categories-root"></nav>
+
+            <!-- Featured/Breaking News Component -->
+            <section id="breaking-news-root"></section>
+
+            <!-- News Grid Component -->
+            <section id="news-grid-root"></section>
+
+            <!-- Status Components (Loader, Error, Empty) -->
+            <div id="status-root"></div>
+        </main>
+
+        <!-- Bookmarks Sidebar Component -->
+        <aside id="bookmarks-root"></aside>
+        
+        <!-- Overlay for drawer -->
+        <div id="overlay" class="overlay"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
+
