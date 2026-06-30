@@ -3,6 +3,10 @@
  * This module handles all communication with the external News API service.
  * It uses the 'fetch' API to make asynchronous network requests.
  */
+
+const NEWS_API_KEY=ce95587b0d204f6cb28730881e728688;
+const NEWS_API_BASE=https://newsapi.org/v2;
+
 import { API_CONFIG } from '../utils/constants.js';
 
 /**
